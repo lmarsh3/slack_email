@@ -1,4 +1,5 @@
 node{
+    
     stage('Checkout code'){
        checkout scm
     }
@@ -29,7 +30,7 @@ node{
     }
     
     stage('Email Notification'){
-        slackSend channel: 'jenkins-slack-test', message: 'This is a slack test message.'
+        emailext attachLog: true, body: '', subject: 'Build Successful', to: 'luke.marshall.03@gmail.com'
     }
     
     stage('Slack Notify'){
